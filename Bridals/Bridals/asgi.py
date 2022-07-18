@@ -1,5 +1,5 @@
 """
-ASGI config for Bridal project.
+ASGI config for Bridals project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.asgi import get_asgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Bridal.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Bridals.settings')
 
 application = get_asgi_application()
