@@ -1,3 +1,4 @@
+from unicodedata import name
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from cloudinary.models import CloudinaryField
@@ -16,3 +17,30 @@ class User(AbstractUser):
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
+
+class BrideDresses(models.Model):
+    title = models.CharField(max_length=300)
+    price = models.CharField(max_length= 200)
+    image1 = CloudinaryField()
+    image2 = CloudinaryField()
+    image3 = CloudinaryField()
+    desc = models.TextField()
+
+class Tuxes(models.Model):
+    title = models.CharField(max_length=300)
+    price = models.CharField(max_length= 200)
+    image1 = CloudinaryField()
+    image2 = CloudinaryField()
+    image3 = CloudinaryField()
+    desc = models.TextField()
+
+class MaidDresses(models.Model):
+    title = models.CharField(max_length=300)
+    price = models.CharField(max_length= 200)
+    image1 = CloudinaryField()
+    image2 = CloudinaryField()
+    image3 = CloudinaryField()
+    desc = models.TextField()
+
+
+
