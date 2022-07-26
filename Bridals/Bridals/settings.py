@@ -1,6 +1,7 @@
 from pathlib import Path
 import os
 from dotenv import load_dotenv
+import cloudinary
 
 env_path = Path('.')/'.env'
 load_dotenv(dotenv_path=env_path)
@@ -28,6 +29,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'bride', 
+    'cloudinary',
 ]
 
 MIDDLEWARE = [
@@ -67,10 +70,11 @@ WSGI_APPLICATION = 'Bridals.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.getenv('DB_NAME'),
-        'USERNAME': os.getenv('DB_USERNAME'),
-        'NAME': os.getenv('DB_NAME'),
-        'NAME': os.getenv('DB_NAME'),
+        'NAME': str(os.getenv('DB_NAME')),
+        'USER': str(os.getenv('DB_USERNAME')),
+        'PASSWORD': str(os.getenv('DB_PASSWORD')),
+        'HOST': str(os.getenv('DB_HOST')),
+        'PORT': 5432,
     }
 }
 
@@ -110,6 +114,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
+
+AUTH_USER_MODEL = 'bride.User'
+
+cloudinary.config( 
+  cloud_name = os.getenv("CLOUD_NAME"), 
+  api_key = os.getenv("CLOUD_API_KEY"), 
+  api_secret = os.getenv("CLOUD_API_SECRET"),
+)
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
